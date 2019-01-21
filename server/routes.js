@@ -16,7 +16,7 @@ router.post('/upload', upload.single('photo'), async (req, res, next) => {
     await visionRequest(base64)
       .then((response) => {
         const translation = response.data.responses[0].fullTextAnnotation.text;
-        console.log({translation})
+        console.log({ translation })
         res.status(200).json(translation);
       });
   } catch (error) {

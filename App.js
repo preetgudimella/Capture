@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'
+// import Icon from 'react-native-vector-icons/Ionicons'
 import CameraScreen from './client/Components/CameraScreen'
 import { createMaterialTopTabNavigator } from 'react-navigation'
 // import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
