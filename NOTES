@@ -1,0 +1,529 @@
+
+Set-up
+    learning
+        Camera
+            npm install -g create-react-native-app
+            npm i -g create-react-native-app
+            create-react-native-app <directory>
+            cd <directory>
+            npm install -g expo-cli
+            npm start
+            open localhost
+        iPhone
+            Download Expo Client app
+            Scan QR code in localhost
+            › Press a to run on Android device/emulator, or i to run on iOS simulator.
+            › Press c to show info on connecting new devices.
+            › Press d to open DevTools in the default web browser.
+            › Press shift-d to disable automatically opening DevTools at startup.
+            › Press e to send an app link with email/SMS.
+            › Press p to toggle production mode. (current mode: development)
+            › Press r to restart bundler, or shift-r to restart and clear cache.
+            › Press s to sign in.
+        Google Service Account
+            Starting-account-12f8gzraokqv
+            Environment Variable GOOGLE_APPLICATION_CREDENTIALS
+                export GOOGLE_APPLICATION_CREDENTIALS="/Users/preet/Documents/Immersive/Senior-Projects-Stackathon/Stackathon/service-account.json"
+    x Expo
+        npm install -g expo-cli
+        expo init
+        name directory
+        choose 'tabs' option
+        npm start
+    x Version 3 ???
+        brew installed -> which brew
+        brew not installed -> brew install watchman
+    x Misc ???
+        react-native init <directory>
+        cd <directory>
+        react-native start
+        iOS: react-native run-ios  OR  open ios/version3.xcodeproj in Xcode & hit the run button
+
+
+
+Links
+
+    React Native - Setup
+        https://www.youtube.com/results?search_query=react+native+setup+mac+vs+code
+
+    React Native - Boilerplate
+        1) https://thecodingmachine.io/introducing-the-react-native-boilerplate
+        2) https://reactnativeseed.com/
+
+    Reactive Native - Documentation
+        https://docs.expo.io/versions/latest/react-native/tutorial
+        http://www.reactnativeexpress.com/environment
+        https://www.fullstackreact.com/react-native/
+
+    Online Ide - Interactive Coding
+        https://snack.expo.io/
+
+    Expo
+        https://expo.io/
+        https://expo.io/features
+
+    Animate React Native UI Elements
+        https://egghead.io/courses/animate-react-native-ui-elements
+    React Native Fundamentals
+        https://egghead.io/courses/react-native-fundamentals
+    Create react native app
+        https://github.com/react-community/create-react-native-app/blob/master/create-react-native-app/src/index.js
+
+
+    Google
+        https://cloud.google.com/vision/docs/handwriting
+        https://cloud.google.com/vision/docs/detecting-fulltext
+        https://cloud.google.com/vision/docs/detecting-fulltext#vision-document-text-detection-nodejs
+        https://cloud.google.com/nodejs/docs/reference/vision/0.24.x/
+        https://cloud.google.com/vision/docs/quickstart-client-libraries
+        https://cloud.google.com/nodejs/docs/reference/vision/0.24.x/
+        https://cloud.google.com/
+        https://cloud.google.com/vision/docs/detecting-fulltext#vision-document-text-detection-nodejs
+
+
+    Firebase
+        https://firebase.google.com/docs/ml-kit/
+        https://firebase.google.com/pricing/
+        https://firebase.google.com/support/faq/#pricing-cloud
+
+
+JSX
+    JSX is tag-based like XML
+    Each tag, like <View />, is transformed into a call to React.createElement()
+    Any attributes become props of the instantiated component
+    Attributes can be strings like foo='hello', or they can be interpolated JavaScript expressions when wrapped in curly braces as in bar={baz} (which would refer to the variable baz)
+
+
+
+    DOCUMENT_TEXT_DETECTION
+
+
+
+
+
+
+
+Media Library
+https://docs.expo.io/versions/v32.0.0/sdk/media-library#asset
+
+onPress to get the ID -> set on State -> pass assest object's URI to Google API
+
+SortBy.creationTime
+Expo.MediaLibrary.getAssetsAsync(options)
+Fetches a page of assets matching the provided criteria.
+
+Arguments
+options (object)
+first (number) -- The maximum number of items on a single page.
+after (string) -- Asset ID of the last item returned on the previous page.
+album (string | Album) -- Album or its ID to get assets from specific album.
+sortBy (array) -- An array of SortBy keys. By default, all keys are sorted in descending order, however you can also pass a pair [key, ascending] where the second item is a boolean
+value that means whether to use ascending order. Earlier items have higher priority when sorting out the results. If empty, this method will use the default sorting that is provided by the platform.
+mediaType (array) -- An array of MediaType types. By default MediaType.photo is set.
+Returns
+A promise that resolves to an object that contains following keys:
+assets (array) -- A page of assets fetched by the query.
+endCursor (string) -- ID of the last fetched asset. It should be passed as after option in order to get the next page.
+hasNextPage (boolean) -- Whether there are more assets to fetch.
+totalCount (number) -- Estimated total number of assets that match the query.
+
+
+Expo.MediaLibrary.getAssetInfoAsync(asset)
+Provides more informations about an asset, including GPS location, local URI and EXIF metadata.
+Arguments
+asset (string | Asset) -- Asset or its ID.
+Returns
+Asset object extended by additional fields listed in the table.
+
+
+
+response.json
+
+{
+  "responses": [
+    {
+      "textAnnotations": [
+        {
+          "locale": "en",
+          "description": "Google Cloud\nPlatform\n",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 312,
+                "y": 95
+              },
+              {
+                "x": 694,
+                "y": 95
+              },
+              {
+                "x": 694,
+                "y": 253
+              },
+              {
+                "x": 312,
+                "y": 253
+              }
+            ]
+          }
+        },
+        {
+          "description": "Google",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 312,
+                "y": 103
+              },
+              {
+                "x": 530,
+                "y": 99
+              },
+              {
+                "x": 531,
+                "y": 172
+              },
+              {
+                "x": 313,
+                "y": 176
+              }
+            ]
+          }
+        },
+        {
+          "description": "Cloud",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 602,
+                "y": 97
+              },
+              {
+                "x": 693,
+                "y": 95
+              },
+              {
+                "x": 694,
+                "y": 168
+              },
+              {
+                "x": 603,
+                "y": 170
+              }
+            ]
+          }
+        },
+        {
+          "description": "Platform",
+          "boundingPoly": {
+            "vertices": [
+              {
+                "x": 429,
+                "y": 190
+              },
+              {
+                "x": 582,
+                "y": 190
+              },
+              {
+                "x": 582,
+                "y": 253
+              },
+              {
+                "x": 429,
+                "y": 253
+              }
+            ]
+          }
+        }
+      ],
+      "fullTextAnnotation": {
+        "pages": [
+          {
+            "property": {
+              "detectedLanguages": [
+                {
+                  "languageCode": "en",
+                  "confidence": 1
+                }
+              ]
+            },
+            "width": 850,
+            "height": 550,
+            "blocks": [
+              {
+                "boundingBox": {
+                  "vertices": [
+                    {
+                      "x": 312,
+                      "y": 103
+                    },
+                    {
+                      "x": 693,
+                      "y": 95
+                    },
+                    {
+                      "x": 696,
+                      "y": 250
+                    },
+                    {
+                      "x": 315,
+                      "y": 258
+                    }
+                  ]
+                },
+                "paragraphs": [
+                  {
+                    "boundingBox": {
+                      "vertices": [
+                        {
+                          "x": 312,
+                          "y": 103
+                        },
+                        {
+                          "x": 693,
+                          "y": 95
+                        },
+                        {
+                          "x": 694,
+                          "y": 168
+                        },
+                        {
+                          "x": 313,
+                          "y": 176
+                        }
+                      ]
+                    },
+                    "words": [
+                      {
+                        "property": {
+                          "detectedLanguages": [
+                            {
+                              "languageCode": "en"
+                            }
+                          ]
+                        },
+                        "boundingBox": {
+                          "vertices": [
+                            {
+                              "x": 312,
+                              "y": 103
+                            },
+                            {
+                              "x": 530,
+                              "y": 99
+                            },
+                            {
+                              "x": 531,
+                              "y": 172
+                            },
+                            {
+                              "x": 313,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        "symbols": [
+                          {
+                            "property": {
+                              "detectedLanguages": [
+                                {
+                                  "languageCode": "en"
+                                }
+                              ]
+                            },
+                            "boundingBox": {
+                              "vertices": [
+                                {
+                                  "x": 312,
+                                  "y": 104
+                                },
+                                {
+                                  "x": 371,
+                                  "y": 103
+                                },
+                                {
+                                  "x": 372,
+                                  "y": 175
+                                },
+                                {
+                                  "x": 313,
+                                  "y": 176
+                                }
+                              ]
+                            },
+                            "text": "G",
+                            "confidence": 0.99
+                          },
+                          ...
+                        ],
+                        "confidence": 0.99
+                      },
+                      {
+                        "property": {
+                          "detectedLanguages": [
+                            {
+                              "languageCode": "en"
+                            }
+                          ]
+                        },
+                        "boundingBox": {
+                          "vertices": [
+                            {
+                              "x": 602,
+                              "y": 97
+                            },
+                            {
+                              "x": 693,
+                              "y": 95
+                            },
+                            {
+                              "x": 694,
+                              "y": 168
+                            },
+                            {
+                              "x": 603,
+                              "y": 170
+                            }
+                          ]
+                        },
+                        "symbols": [
+                          {
+                            "property": {
+                              "detectedLanguages": [
+                                {
+                                  "languageCode": "en"
+                                }
+                              ]
+                            },
+                            "boundingBox": {
+                              "vertices": [
+                                {
+                                  "x": 602,
+                                  "y": 98
+                                },
+                                {
+                                  "x": 620,
+                                  "y": 98
+                                },
+                                {
+                                  "x": 621,
+                                  "y": 170
+                                },
+                                {
+                                  "x": 603,
+                                  "y": 170
+                                }
+                              ]
+                            },
+                            "text": "C",
+                            "confidence": 0.99
+                          },
+                          ...
+                        ],
+                        "confidence": 0.99
+                      }
+                    ],
+                    "confidence": 0.99
+                  },
+                  {
+                    "boundingBox": {
+                      "vertices": [
+                        {
+                          "x": 429,
+                          "y": 190
+                        },
+                        {
+                          "x": 582,
+                          "y": 190
+                        },
+                        {
+                          "x": 582,
+                          "y": 253
+                        },
+                        {
+                          "x": 429,
+                          "y": 253
+                        }
+                      ]
+                    },
+                    "words": [
+                      {
+                        "property": {
+                          "detectedLanguages": [
+                            {
+                              "languageCode": "en"
+                            }
+                          ]
+                        },
+                        "boundingBox": {
+                          "vertices": [
+                            {
+                              "x": 429,
+                              "y": 190
+                            },
+                            {
+                              "x": 582,
+                              "y": 190
+                            },
+                            {
+                              "x": 582,
+                              "y": 253
+                            },
+                            {
+                              "x": 429,
+                              "y": 253
+                            }
+                          ]
+                        },
+                        "symbols": [
+                          {
+                            "property": {
+                              "detectedLanguages": [
+                                {
+                                  "languageCode": "en"
+                                }
+                              ]
+                            },
+                            "boundingBox": {
+                              "vertices": [
+                                {
+                                  "x": 429,
+                                  "y": 190
+                                },
+                                {
+                                  "x": 449,
+                                  "y": 190
+                                },
+                                {
+                                  "x": 449,
+                                  "y": 253
+                                },
+                                {
+                                  "x": 429,
+                                  "y": 253
+                                }
+                              ]
+                            },
+                            "text": "P",
+                            "confidence": 0.92
+                          },
+                          ...
+                        ],
+                        "confidence": 0.97
+                      }
+                    ],
+                    "confidence": 0.97
+                  }
+                ],
+                "blockType": "TEXT",
+                "confidence": 0.98
+              }
+            ]
+          }
+        ],
+        "text": "Google Cloud\nPlatform\n"
+      }
+    }
+  ]
+}
