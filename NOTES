@@ -98,6 +98,10 @@ JSX
     DOCUMENT_TEXT_DETECTION
 
 
+deleted a file from GitHub once it's been commited already
+Edit .gitignore to match the file you want to ignore
+git rm --cached /path/to/file
+
 
 
 

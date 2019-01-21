@@ -8,80 +8,85 @@ import { createMaterialTopTabNavigator } from 'react-navigation'
 export default class App extends React.Component {
   render() {
     return (
-      // <SafeAreaView style={{ flex: 1, backgroundColor: '#f2f2f2'}}>
-        // <AppTabNavigator />
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#f2f2f2' }}>
+        <AppTabNavigator />
         <CameraScreen />
-      // </SafeAreaView>
+      </SafeAreaView>
+      // <View>
+      //   <AppTabNavigator />
+      //   <CameraScreen />
+      // </View>
     )
   }
 }
 
-// class HomeScreen extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>1: Home Screen</Text>
-//       </View>
-//     )
-//   }
-// }
+class Camera extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>1: Camera Screen</Text>
+      </View>
+    )
+  }
+}
 
-// class SettingsScreen extends React.Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text>2: Settings Screen</Text>
-//       </View>
-//     )
-//   }
-// }
+class Translation extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>2: Translation Screen</Text>
+      </View>
+    )
+  }
+}
 
-// const AppTabNavigator = createMaterialTopTabNavigator({
-//   Home: {
-//     screen: HomeScreen,
-//     navigationOptions: {
-//       tabBarLabel: 'Home',
-//       tabBarIcon: ({ tintColor }) => (
-//         <Icon name='ios-home' color={tintColor} size={24} />
-//       )
-//     }
-//   },
-//   Settings: {
-//     screen: SettingsScreen,
-//     navigationOptions: {
-//       tabBarLabel: 'Settings',
-//       tabBarIcon: ({ tintColor }) => (
-//         <Icon name='ios-settings' color={tintColor} size={24} />
-//       )
-//     }
-//   }
-// }, {
-//   initialRouteName: 'Home',
-//   // order: ['Home', 'Settings'],
-//   tabBarPosition: 'bottom',                                   // can delete to keep it on top
-//   swipeEnabled: false,                                        // swipeEnabled: true,
-//                                                               // animationEnabled: false,
-//   tabBarOptions: {
-//     activeTintColor: 'orange',
-//     inactiveTintColor: 'grey',
-//     style: {
-//       backgroundColor: '#f2f2f2',
-//       borderTopWidth: 0.5,
-//       borderTopColor: 'grey'
-//     },
-//     indicatorStyle: {
-//       height: 0
-//     },
-//     showIcon: true                                  // showIcon: false
-//   },
-// })
+const AppTabNavigator = createMaterialTopTabNavigator({
+  Camera: {
+    screen: Camera,
+    navigationOptions: {
+      tabBarLabel: 'Camera',
+      // tabBarIcon: ({ tintColor }) => (
+        // <Icon name='ios-home' color={tintColor} size={24} />
+      // )
+    }
+  },
+  Translation: {
+    screen: Translation,
+    navigationOptions: {
+      tabBarLabel: 'Translation',
+      // tabBarIcon: ({ tintColor }) => (
+      //   <Icon name='ios-settings' color={tintColor} size={24} />
+      // )
+    }
+  }
+}, {
+  initialRouteName: 'Camera',
+  // order: ['Camera', 'Translation'],
+  // tabBarPosition: 'bottom',                                   // can delete to keep it on top
+  // swipeEnabled: false,
+  swipeEnabled: true,
+  animationEnabled: false,
+  tabBarOptions: {
+    activeTintColor: 'orange',
+    inactiveTintColor: 'grey',
+    style: {
+      backgroundColor: '#f2f2f2',
+      borderTopWidth: 0.5,
+      borderTopColor: 'grey'
+    },
+    indicatorStyle: {
+      height: 0
+    },
+    showIcon: true                                  // showIcon: false
+  },
+})
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#000',
-//   },
-// })
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+})
 
 
 
@@ -112,7 +117,7 @@ export default class App extends React.Component {
 // //   }
 // // }
 
-// class HomeScreen extends React.Component {
+// class Camera extends React.Component {
 //   render() {
 //     return (
 //       <View style={styles.container}>
@@ -122,7 +127,7 @@ export default class App extends React.Component {
 //   }
 // }
 
-// class SettingsScreen extends React.Component {
+// class Translation extends React.Component {
 //   render() {
 //     return (
 //       <View style={styles.container}>
@@ -133,27 +138,27 @@ export default class App extends React.Component {
 // }
 
 // export default createMaterialBottomTabNavigator({
-//   Home: {
-//     screen: HomeScreen,
+//   Camera: {
+//     screen: Camera,
 //     navigationOptions: {
-//       tabBarLabel: 'Home',
+//       tabBarLabel: 'Camera',
 //       tabBarIcon: ({tintColor})=>(
 //         <Icon name='ios-home' color={tintColor} size={24} />
 //       )
 //     }
 //   },
-//   Settings: {
-//     screen: SettingsScreen,
+//   Translation: {
+//     screen: Translation,
 //     navigationOptions: {
-//       tabBarLabel: 'Settings',
+//       tabBarLabel: 'Translation',
 //       tabBarIcon: ({tintColor})=>(
 //         <Icon name='ios-settings' color={tintColor} size={24} />
 //       )
 //     }
 //   }
 // }, {
-//   initialRouteName: 'Home',
-//   // order: ['Home', 'Settings'],
+//   initialRouteName: 'Camera',
+//   // order: ['Camera', 'Translation'],
 //   activeTintColor: 'orange',                                   // activeTintColor: 'white'
 //   shifting: true
 // })
@@ -196,7 +201,7 @@ export default class App extends React.Component {
 //    * AuthenticationNavigator is a screen component
 //    */
 //   Auth: AuthenticationNavigator,
-//   Home: HomeScreen,
+//   Camera: Camera,
 // });
 
 // const AppContainer = createAppContainer(AppNavigator);

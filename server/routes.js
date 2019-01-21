@@ -13,7 +13,7 @@ router.post('/upload', upload.single('photo'), async (req, res, next) => {
   console.log('post route /upload');
   try {
     const base64 = req.file.buffer.toString('base64');
-    await translateBase64(base64)
+    await visionRequest(base64)
       .then((response) => {
         const translation = response.data.responses[0].fullTextAnnotation.text;
         console.log({translation})
@@ -25,7 +25,7 @@ router.post('/upload', upload.single('photo'), async (req, res, next) => {
   }
 });
 
-async function translateBase64(base64String) {
+async function visionRequest(base64String) {
   const configuration = {
     requests: [
       {
