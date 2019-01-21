@@ -2,15 +2,12 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const axios = require('axios');
+const visionKey = require('../credentials')
 
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 52428800 },                       // file size limitation in bytes
  });
-
-router.get('/', (req, res, next) => {
-  res.status(200).send('Hello');
-});
 
 router.post('/upload', upload.single('photo'), async (req, res, next) => {
   console.log('post route /upload');
@@ -46,7 +43,7 @@ async function translateBase64(base64String) {
   };
 
   // const url = 'https://vision.googleapis.com/v1/images:annotate?alt=json&key=d21393cfb419b674749726cf1d7e961e8939b98d'
-  const url = 'https://vision.googleapis.com/v1/images:annotate?alt=json&key=AIzaSyDRg0ilcbePFPR2Sq9NpzgcTboaflzvxio';
+  const url = `https://vision.googleapis.com/v1/images:annotate?alt=json&key=${visionKey}`;
   const translation = await axios.post(url, configuration);
   return translation;
 }

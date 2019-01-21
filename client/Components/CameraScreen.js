@@ -123,7 +123,8 @@ export default class CameraScreen extends React.Component {
     };
     var body = new FormData();
     body.append('photo', photoToSend);
-    // console.log('onPictureSaved - photoToSend', photoToSend)
+    console.log('onPictureSaved - photoToSend', photoToSend)
+    // console.log(body.append('photo', photoToSend)) - undefined
     await Axios.post('http://192.168.1.170:3000/upload', body);
     console.log('onPictureSaved - body', body)
     await FileSystem.moveAsync({

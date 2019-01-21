@@ -1,8 +1,9 @@
 const vision = require('@google-cloud/vision');                       // Imports the Google Cloud client library
 
-export default googleVision = async () => {                           // Creates a client
+export default googleVision = async (fileName) => {                   // Creates a client
+  console.log('googleVision', fileName)
   const client = new vision.ImageAnnotatorClient();
-  const fileName = 'gs://vision-api-handwriting-ocr-bucket/handwriting_image.png';
+  // const fileName = 'gs://vision-api-handwriting-ocr-bucket/handwriting_image.png';
   const [result] = await client.documentTextDetection(fileName);      // Read a local image as a text document
   const fullTextAnnotation = result.fullTextAnnotation;
   console.log(`Full text: ${fullTextAnnotation.text}`);
