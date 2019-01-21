@@ -105,7 +105,7 @@ git rm --cached /path/to/file
 
 
 
-
+// "react-navigation": "^2.0.1",
 
 Media Library
 https://docs.expo.io/versions/v32.0.0/sdk/media-library#asset
