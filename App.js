@@ -1,32 +1,16 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
-// import Icon from 'react-native-vector-icons/Ionicons'
-import CameraScreen from './client/Components/CameraScreen'
 import { createSwitchNavigator, createAppContainer, createMaterialTopTabNavigator } from 'react-navigation'
-// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import CameraScreen from './client/Components/CameraScreen'
+import TranslationScreen from './client/Components/TranslationScreen'
+// import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class App extends React.Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: '#f2f2f2' }}>
         <AppNavigator />
-        {/* <AppTabNavigator /> */}
-        {/* <CameraScreen /> */}
       </SafeAreaView>
-      // <View>
-      //   <AppTabNavigator />
-      //   <CameraScreen />
-      // </View>
-    )
-  }
-}
-
-class Translation extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>This page includes the translated text</Text>
-      </View>
     )
   }
 }
@@ -42,7 +26,7 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     }
   },
   Translation: {
-    screen: Translation,
+    screen: TranslationScreen,
     navigationOptions: {
       tabBarLabel: 'Translation',
       // tabBarIcon: ({ tintColor }) => (
@@ -52,30 +36,22 @@ const AppTabNavigator = createMaterialTopTabNavigator({
   }
 }, {
   initialRouteName: 'Camera',
-  // order: ['Camera', 'Translation'],
-  // tabBarPosition: 'bottom',                                   // can delete to keep it on top
-  // swipeEnabled: false,
+  order: ['Camera', 'Translation'],
+  tabBarPosition: 'bottom',
   swipeEnabled: true,
   animationEnabled: false,
   tabBarOptions: {
     activeTintColor: 'orange',
     inactiveTintColor: 'grey',
     style: {
-      backgroundColor: '#f2f2f2',
+      backgroundColor: 'black',
       borderTopWidth: 0.5,
-      borderTopColor: 'grey'
+      borderTopColor: 'orange'
     },
     indicatorStyle: {
       height: 0
     },
     showIcon: true                                  // showIcon: false
-  },
-})
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
   },
 })
 

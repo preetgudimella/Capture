@@ -125,9 +125,10 @@ export default class CameraScreen extends React.Component {
     body.append('photo', photoToSend);
     console.log('onPictureSaved - photoToSend', photoToSend)
     await Axios.post('http://192.168.1.170:3000/upload', body).then((res) => {
-      console.log('res.data:', res.data);
+      const translation = res.data
+      // console.log('res.data:', data);
       const { navigate } = this.props.navigation;
-      navigate('Translation')
+      navigate('Translation', { translation });
     })
     // console.log('onPictureSaved - body', body)
     await FileSystem.moveAsync({
