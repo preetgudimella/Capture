@@ -8,7 +8,7 @@ Set-up
             cd <directory>
             npm install -g expo-cli
             npm start
-            open localhost
+            open new terminal -> open localhost (eg nodemon)
         iPhone
             Download Expo Client app
             Scan QR code in localhost
