@@ -105,7 +105,8 @@ git rm --cached /path/to/file
 
 
 
-// "react-navigation": "^2.0.1",
+React Native Icons
+https://oblador.github.io/react-native-vector-icons/
 
 Passing params to the tab
 https://reactnavigation.org/docs/en/params.html

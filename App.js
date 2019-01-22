@@ -3,12 +3,12 @@ import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import { createSwitchNavigator, createAppContainer, createMaterialTopTabNavigator } from 'react-navigation'
 import CameraScreen from './client/Components/CameraScreen'
 import TranslationScreen from './client/Components/TranslationScreen'
-// import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class App extends React.Component {
   render() {
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#f2f2f2' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#000000' }}>
         <AppNavigator />
       </SafeAreaView>
     )
@@ -20,18 +20,18 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     screen: CameraScreen,
     navigationOptions: {
       tabBarLabel: 'Camera',
-      // tabBarIcon: ({ tintColor }) => (
-        // <Icon name='ios-home' color={tintColor} size={24} />
-      // )
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name='ios-camera' color={tintColor} size={24} />
+      )
     }
   },
   Translation: {
     screen: TranslationScreen,
     navigationOptions: {
       tabBarLabel: 'Translation',
-      // tabBarIcon: ({ tintColor }) => (
-      //   <Icon name='ios-settings' color={tintColor} size={24} />
-      // )
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name='ios-book' color={tintColor} size={24} />
+      )
     }
   }
 }, {
@@ -51,11 +51,11 @@ const AppTabNavigator = createMaterialTopTabNavigator({
     indicatorStyle: {
       height: 0
     },
-    showIcon: true                                  // showIcon: false
+    showIcon: true
   },
 })
 
-const SwitchNavigator = createSwitchNavigator({          // Rather than being rendered by a screen component, the AuthenticationNavigator is a screen component
+const SwitchNavigator = createSwitchNavigator({
   Main: AppTabNavigator,
 });
 
@@ -142,45 +142,3 @@ const AppNavigator = createAppContainer(SwitchNavigator);
 //     backgroundColor: '#000',
 //   },
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// https://reactnavigation.org/docs/en/common-mistakes.html
-
-// export default class App extends React.Component {
-//   render() {
-//     return <AppContainer />;
-//   }
-// }
-
-// const AuthenticationNavigator = createStackNavigator({
-//   SignIn: SignInScreen,
-//   ForgotPassword: ForgotPasswordScreen,
-// });
-
-// const AppNavigator = createSwitchNavigator({
-//   /* 
-//    * Rather than being rendered by a screen component, the
-//    * AuthenticationNavigator is a screen component
-//    */
-//   Auth: AuthenticationNavigator,
-//   Home: HomeScreen,
-// });
-
-// const AppContainer = createAppContainer(AppNavigator);

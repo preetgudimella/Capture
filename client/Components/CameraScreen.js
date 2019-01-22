@@ -106,15 +106,6 @@ export default class CameraScreen extends React.Component {
 
   handleMountError = ({ message }) => console.error(message);
 
-  // onPictureSaved = async photo => {
-  // console.log('onPictureSaved - photoToSend', photoToSend)
-  //   await FileSystem.moveAsync({
-  //     from: photo.uri,
-  //     to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`,
-  //   });
-  //   this.setState({ newPhotos: true });
-  // }
-
   onPictureSaved = async photo => {
     var photoToSend = {
       uri: photo.uri,
@@ -123,14 +114,11 @@ export default class CameraScreen extends React.Component {
     };
     var body = new FormData();
     body.append('photo', photoToSend);
-    console.log('onPictureSaved - photoToSend', photoToSend)
     await Axios.post('http://192.168.1.170:3000/upload', body).then((res) => {
       const translation = res.data
-      // console.log('res.data:', data);
       const { navigate } = this.props.navigation;
       navigate('Translation', { translation });
     })
-    // console.log('onPictureSaved - body', body)
     await FileSystem.moveAsync({
       from: photo.uri,
       to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`,
