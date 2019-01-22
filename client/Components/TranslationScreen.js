@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Clipboard, StyleSheet, Text, View } from 'react-native';
+import { Button, Clipboard, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 
 export default class TranslationScreen extends React.Component {
@@ -19,10 +19,14 @@ export default class TranslationScreen extends React.Component {
 
   render() {
     return (
-      <View style={[styles.container, styles.translation]}>
-        <Text style={styles.translationTitle}>{'\n'}Your Translated Text{'\n'}</Text>
-        <Text style={styles.translationText}>{this.getTranslation()}{'\n'}</Text>
-        <Button title="Copy" onPress={this._setContent}/>
+      <View style={[styles.container]}>
+        <Text style={styles.appName}>{'\n'}Capture</Text>
+        <Text style={styles.translationTitle}>{'\n'}Please see your translated text below:</Text>
+        <Text style={styles.translationText}>{'\n\n\n\n\n\n\n\n'}{this.getTranslation()}{'\n'}</Text>
+        <Button
+          title="Copy"
+          onPress={this._setContent}
+        />
       </View>
     )
   }
@@ -31,21 +35,27 @@ export default class TranslationScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: 'black',
   },
-  translationTitle: {
-    fontSize: 30,
+  appName: {
+    fontSize: 40,
+    fontWeight: 'bold',
     textAlign: 'center',
     textAlignVertical: 'center',
     color: 'orange',
-    textDecorationLine: 'underline'
   },
-  translationText: {
-    fontSize: 25,
+  translationTitle: {
+    fontSize: 20,
     fontStyle: 'italic',
     textAlign: 'center',
     textAlignVertical: 'center',
     color: 'orange',
+  },
+  translationText: {
+    fontSize: 25,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    color: 'white',
     includeFontPadding: true
   }
 })
